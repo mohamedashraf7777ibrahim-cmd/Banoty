@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مفاجأة حبيبتي 💝</title>
+    <script src="https://cdn.jsdelivr.net/npm/jsmediatags@3.9.7/dist/jsmediatags.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Aref+Ruqaa:wght@400;700&family=Amiri:wght@400;700&family=Orbitron:wght@700;900&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        html { scroll-behavior: smooth; height: auto; }
+        
+        body {
+            font-family: 'Aref Ruqaa', 'Amiri', serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0.35)), url('https://iili.io/nFMZjPp.jpg') center/cover no-repeat fixed;
+            color: #ffffff;
+            min-height: 100vh;
+            text-align: center;
+            padding: 0;
+            overflow-x: hidden;
+        }
+        .hidden { display: none !important; }
+
+        .title, .label, .success-small, .error {
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.8), 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #passwordScreen {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            width: 100%;
+        }
+
+        #passwordScreen .inner-wrapper {
+            width: 100%;
+            max-width: 400px;
+            position: relative;
+        }
+
+        .envelope-wrapper {
+            animation: envelopeAppear 1.5s ease;
+            position: relative;
+            cursor: pointer;
+            padding-top: 20px;
+        }
+        @keyframes envelopeAppear {
+            0% { opacity: 0; transform: scale(0) rotate(-180deg); }
+            50% { opacity: 1; transform: scale(1.1) rotate(5deg); }
+            70% { transform: scale(0.95) rotate(-2deg); }
+            100% { opacity: 1; transform: scale(1) rotate(0deg); }
+        }
+
+        .envelope {
+            --env-w: 220px;
+            --env-h: 150px;
+            width: var(--env-w);
+            height: var(--env-h);
+            position: relative;
+            margin: 0 auto;
+            animation: envelopeFloat 3s infinite;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.5));
+        }
+        @keyframes envelopeFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-12px); }
+        }
+
+        .envelope-body {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, #e8d5b7 0%, #d4c5a9 100%);
+            border-radius: 4px;
+            z-index: 1;
+            box-shadow: inset 0 0 30px rgba(139, 90, 43, 0.2);
+            overflow: hidden;
+        }
+
+        .envelope-body::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: calc(var(--env-w) / 2) solid transparent;
+            border-right: calc(var(--env-w) / 2) solid transparent;
+            border-bottom: calc(var(--env-h) / 2) solid #c9b89a;
+        }
+
+        .envelope-body::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(to bottom right, transparent 49%, rgba(139, 90, 43, 0.35) 49%, rgba(139, 90, 43, 0.35) 51%, transparent 51%),
+                linear-gradient(to bottom left, transparent 49%, rgba(139, 90, 43, 0.35) 49%, rgba(139, 90, 43, 0.35) 51%, transparent 51%);
+            z-index: 2;
+        }
+
+        .envelope-flap {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 0;
+            border-left: calc(var(--env-w) / 2) solid transparent;
+            border-right: calc(var(--env-w) / 2) solid transparent;
+            border-top: calc(var(--env-h) * 0.57) solid #e8d5b7;
+            transform-origin: top;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 4;
+            filter: drop-shadow(0 3px 3px rgba(0, 0, 0, 0.2));
+        }
+
+        .envelope-letter {
+            position: absolute;
+            top: 20px;
+            left: 25px;
+            right: 25px;
+            bottom: 20px;
+            background: #faf5ec;
+            border-radius: 3px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 30px;
+            transition: all 1s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            z-index: 2;
+            box-shadow: inset 0 0 15px rgba(139, 90, 43, 0.15);
+            border: 1px solid #e0d0b8;
+        }
+
+        .lock {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 45px;
+            z-index: 6;
+            animation: lockPulse 2s infinite;
+            transition: all 0.5s;
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+        }
+        @keyframes lockPulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.1); }
+        }
+        .lock.unlocked {
+            opacity: 0;
+            transform: translate(-50%, -50%) scale(0);
+        }
+
+        .heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 55px;
+            z-index: 10;
+            transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.4));
+        }
+        .heart.show {
+            transform: translate(-50%, -50%) scale(1);
+            animation: beat 1.5s infinite;
+        }
+        @keyframes beat {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.3); }
+        }
+
+        .envelope.opened .envelope-flap {
+            transform: rotateX(180deg);
+            z-index: 0;
+        }
+        .envelope.opened .envelope-letter {
+            transform: translateY(-45px) scale(1.1);
+            z-index: 5;
+        }
+        .envelope.opened {
+            animation: envelopeZoom 1s ease forwards;
+        }
+        @keyframes envelopeZoom {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.3); }
+            100% { transform: scale(3); opacity: 0; }
+        }
+
+        .label {
+            margin-top: 35px;
+            color: #ffb3c1;
+            font-size: 17px;
+            animation: labelPulse 2s infinite;
+            line-height: 1.8;
+            padding: 0 15px;
+            font-weight: 700;
+            font-family: 'Aref Ruqaa', serif;
+        }
+        @keyframes labelPulse {
+            0%, 100% { opacity: 0.85; }
+            50% { opacity: 1; }
+        }
+
+        .password-box {
+            display: none;
+            margin-top: 25px;
+            animation: fadeInUp 0.8s ease;
+        }
+        .password-box.active { display: block; }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title { 
+            color: #ffb3c1; 
+            font-size: 22px; 
+            margin-bottom: 15px;
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: 700;
+            text-shadow: 0 0 15px rgba(255, 141, 161, 0.6);
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #ff8da1;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 10px;
+            direction: rtl;
+            backdrop-filter: blur(5px);
+            font-family: 'Aref Ruqaa', serif;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            border-color: #ff3366;
+            box-shadow: 0 0 20px rgba(255, 51, 102, 0.3);
+        }
+
+        .error {
+            color: #ff3366;
+            font-size: 15px;
+            display: none;
+            margin-top: 10px;
+            font-weight: bold;
+            font-family: 'Aref Ruqaa', serif;
+        }
+        .error.active { display: block; animation: shake 0.5s; }
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            25% { transform: translateX(-8px); }
+            75% { transform: translateX(8px); }
+        }
+
+        .success-message {
+            display: none;
+            margin-top: 20px;
+            animation: fadeInUp 1s ease;
+        }
+        .success-message.active { display: block; }
+        .success-small {
+            font-size: 16px;
+            color: #ffb3c1;
+            line-height: 2;
+            animation: successPulse 2s infinite;
+            text-shadow: 0 0 15px rgba(0, 0, 0, 1);
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: 700;
+        }
+        @keyframes successPulse {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        #contentScreen { 
+            width: 100%; 
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 20px 0 120px 0;
+            position: relative;
+        }
+
+        .scroll-container {
+            width: 100%;
+            max-width: 100%;
+            padding: 0 20px;
+        }
+
+        .slide {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 200px 0;
+            text-align: center;
+            background: transparent;
+            margin: 0 auto;
+        }
+
+        .content-section { 
+            width: 100%; 
+            max-width: 450px; 
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .content-image {
+            width: 100%;
+            max-height: 80vh;
+            border-radius: 20px;
+            object-fit: cover;
+            margin: 0;
+            border: 2px solid #ff8da1;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+        
+        .content-text {
+            font-size: 22px;
+            line-height: 2;
+            padding: 15px;
+            background: transparent;
+            border: none;
+            border-radius: 0;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            margin-top: 20px;
+            position: relative;
+            z-index: 2;
+            color: #ffffff;
+            font-weight: 700;
+            font-family: 'Aref Ruqaa', serif;
+            text-shadow: 
+                0 0 10px rgba(0, 0, 0, 1),
+                0 0 20px rgba(0, 0, 0, 1),
+                0 2px 4px rgba(0, 0, 0, 1),
+                0 4px 8px rgba(0, 0, 0, 0.8);
+        }
+        
+        .content-image + .content-text {
+            margin-top: 8px;
+            padding: 20px;
+            position: relative;
+            z-index: 3;
+        }
+        
+        .slide-title {
+            font-size: 30px;
+            color: #ffb3c1;
+            margin: 15px 0;
+            font-weight: 700;
+            font-family: 'Aref Ruqaa', serif;
+            text-shadow: 
+                0 0 15px rgba(0, 0, 0, 1),
+                0 0 30px rgba(255, 141, 161, 0.8),
+                0 0 45px rgba(255, 141, 161, 0.5);
+            position: relative;
+            display: inline-block;
+            padding: 0 20px;
+        }
+
+        .slide-title::before {
+            content: '✦';
+            position: absolute;
+            right: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #ffd700;
+            animation: starTwinkle 2s infinite;
+        }
+
+        .slide-title::after {
+            content: '✦';
+            position: absolute;
+            left: -25px;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 20px;
+            color: #ffd700;
+            animation: starTwinkle 2s infinite 0.5s;
+        }
+
+        @keyframes starTwinkle {
+            0%, 100% { opacity: 0.5; transform: translateY(-50%) scale(1); }
+            50% { opacity: 1; transform: translateY(-50%) scale(1.3); }
+        }
+
+        .cinema-counter {
+            padding: 25px 15px;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.7), rgba(26, 10, 10, 0.7));
+            border-radius: 20px;
+            border: 2px solid #d4af37;
+            position: relative;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        .cinema-title {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 18px;
+            color: #ffd700;
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            letter-spacing: 1px;
+            font-weight: 700;
+            position: relative;
+            display: inline-block;
+            padding: 0 30px;
+            line-height: 1.5;
+        }
+
+        .cinema-title::before {
+            content: '❦';
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #d4af37;
+        }
+
+        .cinema-title::after {
+            content: '❦';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #d4af37;
+        }
+
+        .cinema-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            direction: ltr;
+            margin-top: 10px;
+        }
+
+        .cinema-item {
+            background: rgba(10, 10, 10, 0.6);
+            border-radius: 12px;
+            padding: 12px 5px;
+            border: 1px solid #d4af37;
+            box-shadow: inset 0 0 15px rgba(212, 175, 55, 0.1);
+        }
+
+        .cinema-number {
+            font-family: 'Orbitron', monospace;
+            font-size: 26px;
+            font-weight: 900;
+            color: #ffd700;
+            display: block;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            letter-spacing: 1px;
+        }
+
+        .cinema-label {
+            font-size: 12px;
+            color: #d4af37;
+            display: block;
+            margin-top: 5px;
+            letter-spacing: 1px;
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: 700;
+        }
+
+        .cinema-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #d4af37, transparent);
+            margin: 15px 0;
+            position: relative;
+        }
+
+        .cinema-divider::before {
+            content: '❈';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #ffd700;
+            background: rgba(10, 10, 10, 0.9);
+            padding: 0 10px;
+            font-size: 14px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+
+        .big-emoji { font-size: 50px; display: inline-block; }
+
+        .paper-container {
+            position: relative;
+            width: 100%;
+            max-width: 500px;
+            min-height: 75vh;
+            margin: 0 auto;
+            padding: 55px 40px 45px 40px;
+            background: linear-gradient(135deg, #fef9e7 0%, #fdf3d1 50%, #fef9e7 100%);
+            border-radius: 4px;
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.7),
+                0 5px 15px rgba(0, 0, 0, 0.4),
+                inset 0 0 80px rgba(212, 175, 55, 0.1);
+            position: relative;
+            overflow: hidden;
+            transform: rotate(-0.5deg);
+        }
+
+        .paper-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 45px,
+                rgba(212, 175, 55, 0.2) 45px,
+                rgba(212, 175, 55, 0.2) 46px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .paper-container::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            bottom: 30px;
+            right: 55px;
+            width: 2px;
+            background: rgba(255, 107, 107, 0.35);
+            border-radius: 2px;
+            z-index: 1;
+        }
+
+        .paper-decoration {
+            position: absolute;
+            font-size: 32px;
+            opacity: 0.5;
+            z-index: 2;
+        }
+
+        .paper-decoration.top-right {
+            top: 12px;
+            left: 20px;
+            transform: rotate(-15deg);
+            animation: penMove 2s ease-in-out infinite;
+        }
+
+        @keyframes penMove {
+            0%, 100% { transform: rotate(-15deg) translate(0, 0); }
+            50% { transform: rotate(-20deg) translate(-3px, 3px); }
+        }
+
+        .paper-decoration.bottom-left {
+            bottom: 12px;
+            right: 20px;
+            transform: rotate(15deg);
+            animation: heartBeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartBeat {
+            0%, 100% { transform: rotate(15deg) scale(1); }
+            50% { transform: rotate(15deg) scale(1.2); }
+        }
+
+        .paper-text {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 22px;
+            line-height: 2.1;
+            color: #2c1810;
+            text-align: right;
+            font-weight: 700;
+            position: relative;
+            z-index: 3;
+            word-wrap: break-word;
+            min-height: 50px;
+            text-shadow: 0 1px 1px rgba(255, 255, 255, 0.6);
+            padding-top: 5px;
+            white-space: pre-wrap;
+        }
+
+        .paper-text::after {
+            content: '|';
+            color: #2c1810;
+            font-size: 26px;
+            margin-right: 3px;
+            animation: blink 0.7s infinite;
+            font-weight: normal;
+        }
+
+        .paper-text.done::after { display: none; }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .fixed-music-player {
+            position: fixed;
+            bottom: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            max-width: 380px;
+            background: linear-gradient(135deg, rgba(10, 10, 10, 0.95), rgba(40, 10, 30, 0.95));
+            border-radius: 20px;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 9998;
+            backdrop-filter: blur(15px);
+            box-shadow: 
+                0 0 25px rgba(255, 51, 102, 0.4),
+                0 8px 25px rgba(0, 0, 0, 0.7);
+            border: 1px solid rgba(255, 215, 0, 0.4);
+        }
+
+        .fixed-music-player::before {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 20px;
+            padding: 1px;
+            background: linear-gradient(45deg, #ff3366, #ffd700, #ff8da1, #ff3366);
+            background-size: 300% 300%;
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: goldBorderMove 4s ease infinite;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        @keyframes goldBorderMove {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .fixed-music-cover {
+            position: relative;
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 1.5px solid #ffd700;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+            background: linear-gradient(135deg, #ff3366, #ff8da1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .fixed-music-cover img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: none;
+        }
+
+        .fixed-music-cover img.show { display: block; }
+
+        .fixed-music-cover span {
+            font-size: 22px;
+            color: #fff;
+        }
+
+        .fixed-music-cover span.hide { display: none; }
+
+        .fixed-music-info {
+            flex: 1;
+            text-align: right;
+            min-width: 0;
+        }
+
+        .fixed-music-name {
+            font-family: 'Aref Ruqaa', serif;
+            font-size: 14px;
+            color: #ffd700;
+            font-weight: 700;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            letter-spacing: 0.5px;
+            margin-bottom: 3px;
+        }
+
+        .fixed-music-waves {
+            display: flex;
+            gap: 3px;
+            justify-content: flex-end;
+            height: 12px;
+            align-items: flex-end;
+        }
+
+        .fixed-music-waves span {
+            display: block;
+            width: 3px;
+            background: linear-gradient(to top, #ff3366, #ffd700);
+            border-radius: 2px;
+            animation: waveAnim 1s ease-in-out infinite;
+        }
+
+        .fixed-music-waves span:nth-child(1) { animation-delay: 0s; height: 6px; }
+        .fixed-music-waves span:nth-child(2) { animation-delay: 0.15s; height: 10px; }
+        .fixed-music-waves span:nth-child(3) { animation-delay: 0.3s; height: 12px; }
+        .fixed-music-waves span:nth-child(4) { animation-delay: 0.15s; height: 10px; }
+        .fixed-music-waves span:nth-child(5) { animation-delay: 0s; height: 6px; }
+
+        .fixed-music-waves.paused span {
+            animation-play-state: paused;
+            opacity: 0.4;
+        }
+
+        @keyframes waveAnim {
+            0%, 100% { transform: scaleY(0.5); }
+            50% { transform: scaleY(1.2); }
+        }
+
+        .fixed-music-play {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #ff3366, #ff8da1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            flex-shrink: 0;
+            box-shadow: 0 0 15px rgba(255, 51, 102, 0.6);
+            transition: all 0.3s;
+        }
+
+        .fixed-music-play:active { transform: scale(0.9); }
+
+        .fixed-music-play span {
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            margin-left: 2px;
+        }
+
+        .fixed-music-play span.pause { margin-left: 0; }
+
+        .music-cover-preview {
+            width: 100px;
+            height: 100px;
+            border-radius: 15px;
+            margin-top: 10px;
+            border: 2px solid #ffd700;
+            object-fit: cover;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.4);
+        }
+
+        #adminScreen {
+            width: 100%;
+            max-width: 400px;
+            min-height: 100vh;
+            overflow-y: auto;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 20px;
+            padding: 15px;
+            margin: 20px auto;
+        }
+        #adminScreen::-webkit-scrollbar { display: none; }
+        .admin-header {
+            border: 1px solid #ff8da1;
+            border-radius: 15px;
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .admin-header h1 {
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: 700;
+        }
+        .field-group {
+            border: 1px solid rgba(255, 141, 161, 0.3);
+            border-radius: 10px;
+            padding: 12px;
+            margin: 10px 0;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .field-group h3 {
+            color: #ffb3c1;
+            font-size: 15px;
+            margin-bottom: 8px;
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: 700;
+        }
+        .btn {
+            display: block;
+            padding: 14px 20px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(135deg, #ff3366, #ff8da1);
+            color: #ffffff;
+            font-size: 18px;
+            font-weight: 700;
+            cursor: pointer;
+            width: 100%;
+            font-family: 'Aref Ruqaa', serif;
+        }
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+        }
+        .btn-link {
+            background: #4a4a8a;
+            color: #ffffff;
+        }
+        .btn-export {
+            background: linear-gradient(135deg, #00b894, #55efc4);
+            color: #000;
+            font-weight: 900;
+            margin-top: 15px;
+            box-shadow: 0 0 20px rgba(0, 184, 148, 0.4);
+        }
+        .image-group {
+            border: 1px solid rgba(255, 141, 161, 0.3);
+            border-radius: 10px;
+            padding: 10px;
+            margin: 8px 0;
+            position: relative;
+            background: rgba(0, 0, 0, 0.3);
+        }
+        .remove-btn {
+            position: absolute;
+            top: 5px;
+            left: 5px;
+            background: #ff4444;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 25px;
+            height: 25px;
+            cursor: pointer;
+            font-size: 14px;
+            line-height: 25px;
+            text-align: center;
+            z-index: 5;
+        }
+        .add-btn {
+            background: linear-gradient(135deg, #ff3366, #ff8da1);
+            color: #fff;
+            border: none;
+            border-radius: 50px;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: 700;
+        }
+        .choose-image-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff3366, #ff8da1);
+            color: #fff;
+            border: none;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-bottom: 8px;
+            font-family: 'Aref Ruqaa', serif;
+        }
+        #linkSection {
+            display: none;
+            margin-top: 10px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            border: 1px solid #ff8da1;
+        }
+        .export-info {
+            color: #00b894;
+            font-size: 12px;
+            display: block;
+            margin-top: 8px;
+            line-height: 1.6;
+            font-family: 'Aref Ruqaa', serif;
+        }
+
+        .loading-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 99999;
+            padding: 30px;
+            text-align: center;
+        }
+
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 141, 161, 0.3);
+            border-top: 5px solid #ff3366;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 25px;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .loading-text {
+            color: #ffb3c1;
+            font-size: 22px;
+            font-family: 'Aref Ruqaa', serif;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-shadow: 0 0 20px rgba(255, 141, 161, 0.8);
+        }
+
+        .loading-subtext {
+            color: #ffffff;
+            font-size: 14px;
+            font-family: 'Aref Ruqaa', serif;
+            opacity: 0.8;
+        }
+
+        .loading-progress {
+            width: 80%;
+            max-width: 300px;
+            height: 8px;
+            background: rgba(255, 141, 161, 0.2);
+            border-radius: 10px;
+            margin-top: 20px;
+            overflow: hidden;
+        }
+
+        .loading-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #ff3366, #ff8da1);
+            border-radius: 10px;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="passwordScreen">
+        <div class="inner-wrapper">
+            <div class="envelope-wrapper" id="envelopeWrapper">
+                <div class="envelope" id="envelope">
+                    <div class="envelope-body"></div>
+                    <div class="envelope-letter">💌</div>
+                    <div class="envelope-flap"></div>
+                    <div class="lock" id="lock">🔒</div>
+                    <div class="heart" id="heart">❤️</div>
+                </div>
+                <div class="label" id="label">اكتبي الباسورد ي نور عيني و ادخلي برجلك اليمين 🌚😉💗</div>
+            </div>
+
+            <div class="password-box" id="passwordBox">
+                <div class="title">👑 اكتبي الباسورد</div>
+                <input type="password" id="herPasswordInput" placeholder="الباسورد هنا...">
+                <div class="error" id="errorMessage">اكتبي الباسورد عدل بدل ما انكد عليكي 🙄💗</div>
+            </div>
+
+            <div class="success-message" id="successMessage">
+                <div class="success-small" id="successText1">اموااااااااااااااااه اشطر شطوره في الدنيا دي كلها ي ناس🌚💗😉</div>
+            </div>
+        </div>
+    </div>
+
+    <div id="contentScreen" class="hidden">
+        <div class="scroll-container">
+            <div id="surpriseContent"></div>
+        </div>
+        <audio id="audioPlayer" loop></audio>
+    </div>
+
+    <div id="fixedMusicPlayer" class="fixed-music-player hidden">
+        <div class="fixed-music-cover">
+            <img id="fixedMusicCoverImg" src="" alt="غلاف">
+            <span id="fixedMusicCoverIcon">🎵</span>
+        </div>
+        <div class="fixed-music-info">
+            <div class="fixed-music-name" id="fixedMusicName">أغنية</div>
+            <div class="fixed-music-waves">
+                <span></span><span></span><span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="fixed-music-play" onclick="toggleFixedMusic(); return false;">
+            <span id="fixedMusicPlayIcon">▶</span>
+        </div>
+    </div>
+
+    <div id="adminScreen" class="hidden">
+        <div class="admin-header">
+            <h1 style="color: #ffb3c1; font-size: 24px;">🎁 صانع المفاجأة</h1>
+            <p style="color: #ffffff; font-size: 14px;">املأ البيانات واضغط على الأزرار</p>
+        </div>
+
+        <div class="field-group">
+            <h3>🔐 باسورد التحكم</h3>
+            <input type="password" id="adminPassword" placeholder="اكتب الباسورد">
+        </div>
+
+        <div id="adminForm" style="display: none;">
+            <div class="field-group">
+                <h3>💝 باسورد حبيبتك</h3>
+                <input type="password" id="herPassword" placeholder="الباسورد">
+            </div>
+            <div class="field-group">
+                <h3>📅 تاريخ الارتباط</h3>
+                <input type="datetime-local" id="startDate">
+            </div>
+            <div class="field-group">
+                <h3>💕 تاريخ أول يوم اتعرفنا</h3>
+                <input type="datetime-local" id="firstMeetDate">
+            </div>
+            <div class="field-group">
+                <h3>🌹 تاريخ أول خروجة</h3>
+                <input type="datetime-local" id="firstDateDate">
+            </div>
+            <div class="field-group">
+                <h3>💌 المقدمة</h3>
+                <textarea id="introText" rows="3" placeholder="كلام المقدمة"></textarea>
+            </div>
+            
+            <div class="field-group">
+                <h3>📸 الصور والكلام</h3>
+                <div id="imagesContainer"></div>
+                <button type="button" class="add-btn" onclick="addImageField(event); return false;">➕ أضف صورة</button>
+            </div>
+            
+            <div class="field-group">
+                <h3>💬 كلام حلو (على ورقة) ✍️</h3>
+                <textarea id="sweetText" rows="3" placeholder="كلام حلو"></textarea>
+            </div>
+            <div class="field-group">
+                <h3>🌹 الخاتمة</h3>
+                <textarea id="endingText" rows="3" placeholder="الخاتمة"></textarea>
+            </div>
+            <div class="field-group">
+                <h3>🎵 الأغنية</h3>
+                <input type="file" id="musicFile" accept="audio/*" onchange="extractMusicInfo(event)">
+                <small style="color: #ffb3c1; font-size: 12px; display: block; margin-top: 5px;">لو الأغنية فيها غلاف واسم، هيتاخدوا تلقائي</small>
+            </div>
+            <div class="field-group">
+                <h3>📝 اسم الأغنية</h3>
+                <input type="text" id="musicName" placeholder="اسم الأغنية (هيتاخد تلقائي لو موجود)">
+            </div>
+            <div class="field-group">
+                <h3>🖼️ صورة الأغنية (غلاف)</h3>
+                <input type="file" id="musicCover" accept="image/*">
+                <small style="color: #ffb3c1; font-size: 12px; display: block; margin-top: 5px;">لو مفيش غلاف في الأغنية، ارفعها يدوي</small>
+            </div>
+            
+            <button type="button" class="btn btn-secondary" onclick="previewSurprise(); return false;">👀 معاينة</button>
+            <button type="button" class="btn" onclick="saveData(); return false;">💾 حفظ</button>
+            <button type="button" class="btn btn-link" onclick="showLinkSection(); return false;">🔗 إنشاء الرابط</button>
+            
+            <div id="linkSection">
+                <h3 style="color: #ffb3c1; font-size: 16px; margin-bottom: 8px;">✍️ اكتب اسم الرابط</h3>
+                <input type="text" id="linkName" placeholder="مثال: مفاجأة-حبيبتي">
+                <button type="button" class="btn" onclick="generateAndShowLink(); return false;">📋 إنشاء ونسخ</button>
+            </div>
+
+            <button type="button" class="btn btn-export" onclick="exportSurprise(); return false;">📥 تصدير المفاجأة كملف</button>
+            <small class="export-info">
+                📱 بعد التصدير، ابعت الملف على واتساب كـ Document<br>
+                💝 لما حبيبتك تفتحه، المفاجأة هتظهر فوراً!
+            </small>
+        </div>
+    </div>
+
+    <input type="file" id="globalImageInput" accept="image/*" style="display: none;">
+    <input type="file" id="globalMusicInput" accept="audio/*" style="display: none;">
+
+    <script>
+        // ============ المتغيرات العامة ============
+        var imageCount = 0;
+        var db = null;
+        var extractedCover = '';
+        var currentEditingImageIndex = 0;
+        var imageFiles = {};
+        var savedImages = {};
+        var _restoreDone = false;
+        var _initDone = false;
+        var _counterInterval = null;
+        var _typerTimeout = null;
+        var _inputDebounceTimer;
+        var _adminClickTimer = null;
+        var adminClicks = 0;
+        var _wasPlaying = false;
+
+        // ✅ باسورد الأدمن مشفر
+        const ADMIN_HASH = 'ys6a03';
+        const JSONBIN_KEY = '$2a$10$H4fsksVip87WGg2.NsTmU.5QMzw4Rus2G41u556guCqbN7SoUtZ9m';
+const JSONBIN_BIN = '6aa60e8eac6210605ac68efe';
+const JSONBIN_URL = 'https://api.jsonbin.io/v3/b/' + JSONBIN_BIN;
+
+        async function hashPassword(str) {
+            let hash = 0;
+            const salt = 'x9k2m_';
+            const combined = salt + str + salt;
+            for (let i = 0; i < combined.length; i++) {
+                const char = combined.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+            }
+            return hash.toString(36);
+        }
+
+        // ============ Typewriter ============
+        function typewriterEffect(element, text, speed) {
+            if (_typerTimeout) clearTimeout(_typerTimeout);
+            var i = 0;
+            element.textContent = '';
+            element.classList.remove('done');
+            
+            function type() {
+                if (!document.body.contains(element)) return;
+                if (i < text.length) {
+                    element.textContent += text.charAt(i);
+                    i++;
+                    _typerTimeout = setTimeout(type, speed);
+                } else {
+                    element.classList.add('done');
+                }
+            }
+            type();
+        }
+
+        // ============ Auto Save ============
+        function saveFormState() {
+            clearTimeout(window._saveTimer);
+            window._saveTimer = setTimeout(async () => {
+                try {
+                    await initDB();
+                    const textData = {
+                        herPassword: document.getElementById('herPassword')?.value || '',
+                        startDate: document.getElementById('startDate')?.value || '',
+                        firstMeetDate: document.getElementById('firstMeetDate')?.value || '',
+                        firstDateDate: document.getElementById('firstDateDate')?.value || '',
+                        introText: document.getElementById('introText')?.value || '',
+                        sweetText: document.getElementById('sweetText')?.value || '',
+                        endingText: document.getElementById('endingText')?.value || '',
+                        musicName: document.getElementById('musicName')?.value || '',
+                        imageCount: imageCount,
+                        imageTexts: []
+                    };
+                    
+                    for (let i = 1; i <= imageCount; i++) {
+                        const el = document.getElementById('imageText' + i);
+                        if (el) textData.imageTexts.push(el.value);
+                    }
+                    
+                    await saveToDB('textData', textData);
+                } catch(e) { console.log('auto-save error:', e); }
+            }, 500);
+        }
+
+        document.addEventListener('input', function(e) {
+            if ((e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') && e.target.type !== 'file') {
+                clearTimeout(_inputDebounceTimer);
+                _inputDebounceTimer = setTimeout(saveFormState, 800);
+            }
+        });
+
+        // ============ إضافة صورة ============
+        function addImageField(event, existingImage, existingText) {
+            if (event && event.preventDefault) {
+                event.preventDefault();
+                event.stopPropagation();
+            }
+            
+            imageCount++;
+            var container = document.getElementById('imagesContainer');
+            var div = document.createElement('div');
+            div.className = 'image-group';
+            div.id = 'imageGroup' + imageCount;
+            
+            var imgPreviewHTML = '';
+            if (existingImage) {
+                imgPreviewHTML = '<img id="preview_' + imageCount + '" src="' + existingImage + '" style="width:100%; max-height:200px; border-radius:10px; margin-bottom:8px; border:2px solid #ff8da1; object-fit:cover;">';
+                savedImages[imageCount] = existingImage;
+            } else {
+                imgPreviewHTML = '<img id="preview_' + imageCount + '" style="display:none; width:100%; max-height:200px; border-radius:10px; margin-bottom:8px; border:2px solid #ff8da1; object-fit:cover;">';
+            }
+            
+            div.innerHTML = `
+                <button type="button" class="remove-btn" onclick="removeImage(${imageCount}); return false;">×</button>
+                ${imgPreviewHTML}
+                <button type="button" class="choose-image-btn" onclick="openImagePicker(${imageCount}); return false;">
+                    ${existingImage ? '🔄 تغيير الصورة' : '📸 اختر صورة'}
+                </button>
+                <textarea id="imageText${imageCount}" rows="2" placeholder="الكلام تحت الصورة" oninput="saveFormState();"></textarea>
+            `;
+            container.appendChild(div);
+            
+            var textInput = document.getElementById('imageText' + imageCount);
+            if (textInput && existingText) {
+                textInput.value = existingText;
+            }
+            
+            saveFormState();
+            return false;
+        }
+
+        function openImagePicker(index) {
+            currentEditingImageIndex = index;
+            var input = document.getElementById('globalImageInput');
+            input.value = '';
+            input.click();
+            return false;
+        }
+
+        document.getElementById('globalImageInput').addEventListener('change', async function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            
+            var index = currentEditingImageIndex;
+            var preview = document.getElementById('preview_' + index);
+            
+            if (preview) {
+                var reader = new FileReader();
+                reader.onload = async function(ev) {
+                    preview.src = ev.target.result;
+                    preview.style.display = 'block';
+                    
+                    imageFiles[index] = file;
+                    savedImages[index] = ev.target.result;
+                    
+                    var btn = document.querySelector('#imageGroup' + index + ' .choose-image-btn');
+                    if (btn) btn.textContent = '🔄 تغيير الصورة';
+                    
+                    try {
+                        await initDB();
+                        var textData = await loadFromDB('textData') || {};
+                        textData.imageCount = imageCount;
+                        textData.herPassword = document.getElementById('herPassword').value;
+                        textData.startDate = document.getElementById('startDate').value;
+                        textData.firstMeetDate = document.getElementById('firstMeetDate').value;
+                        textData.firstDateDate = document.getElementById('firstDateDate').value;
+                        textData.introText = document.getElementById('introText').value;
+                        textData.sweetText = document.getElementById('sweetText').value;
+                        textData.endingText = document.getElementById('endingText').value;
+                        textData.musicName = document.getElementById('musicName').value;
+                        
+                        await saveToDB('textData', textData);
+                        
+                        var textInput = document.getElementById('imageText' + index);
+                        await saveToDB('image_' + index, {
+                            image: ev.target.result,
+                            text: textInput ? textInput.value.trim() : ''
+                        });
+                    } catch (err) {
+                        console.log('مشكلة في الحفظ الفوري:', err);
+                    }
+                    
+                    saveFormState();
+                };
+                reader.readAsDataURL(file);
+            }
+            
+            this.value = '';
+        });
+
+        function removeImage(index) {
+            var element = document.getElementById('imageGroup' + index);
+            if (element) element.remove();
+            
+            delete imageFiles[index];
+            delete savedImages[index];
+            
+            initDB().then(() => {
+                const transaction = db.transaction(['data'], 'readwrite');
+                transaction.objectStore('data').delete('image_' + index);
+            }).catch(() => {});
+            
+            saveFormState();
+            return false;
+        }
+
+        // ============ استخراج معلومات الأغنية ============
+        function extractMusicInfo(event) {
+            if (event && event.stopPropagation) event.stopPropagation();
+            
+            const fileInput = document.getElementById('musicFile');
+            const file = (event && event.target && event.target.files[0]) 
+                         || (fileInput && fileInput.files[0]);
+            
+            if (!file) return;
+            
+            var oldPreview = document.getElementById('musicCoverPreview');
+            if (oldPreview) oldPreview.remove();
+            extractedCover = '';
+            
+            jsmediatags.read(file, {
+                onSuccess: function(tag) {
+                    var tags = tag.tags;
+                    
+                    if (tags.title) {
+                        document.getElementById('musicName').value = tags.title;
+                    } else {
+                        var fileName = file.name.replace(/\.[^/.]+$/, "");
+                        if (!document.getElementById('musicName').value) {
+                            document.getElementById('musicName').value = fileName;
+                        }
+                    }
+                    
+                    if (tags.picture) {
+                        var picture = tags.picture;
+                        var base64String = "";
+                        for (var i = 0; i < picture.data.length; i++) {
+                            base64String += String.fromCharCode(picture.data[i]);
+                        }
+                        var imageUrl = "data:" + picture.format + ";base64," + window.btoa(base64String);
+                        
+                        extractedCover = imageUrl;
+                        
+                        var preview = document.createElement('img');
+                        preview.id = 'musicCoverPreview';
+                        preview.className = 'music-cover-preview';
+                        preview.src = imageUrl;
+                        
+                        var existingPreview = document.getElementById('musicCoverPreview');
+                        if (existingPreview) existingPreview.remove();
+                        document.getElementById('musicFile').parentNode.appendChild(preview);
+                    }
+                    
+                    saveFormState();
+                },
+                onError: function(error) {
+                    console.log('خطأ:', error);
+                    var fileName = file.name.replace(/\.[^/.]+$/, "");
+                    if (!document.getElementById('musicName').value) {
+                        document.getElementById('musicName').value = fileName;
+                    }
+                    saveFormState();
+                }
+            });
+        }
+
+        // ============ مشغل الأغنية ============
+        function setupFixedMusicPlayer(data) {
+            var player = document.getElementById('fixedMusicPlayer');
+            var nameEl = document.getElementById('fixedMusicName');
+            var coverImg = document.getElementById('fixedMusicCoverImg');
+            var coverIcon = document.getElementById('fixedMusicCoverIcon');
+            
+            if (!data.music && !data.musicName) {
+                player.classList.add('hidden');
+                return;
+            }
+            
+            player.classList.remove('hidden');
+            nameEl.textContent = data.musicName || 'الاغنيه اللي بتحبها😉💗';
+            
+            if (data.musicCover) {
+                coverImg.src = data.musicCover;
+                coverImg.classList.add('show');
+                coverIcon.classList.add('hide');
+            } else {
+                coverImg.classList.remove('show');
+                coverIcon.classList.remove('hide');
+            }
+        }
+
+        function toggleFixedMusic() {
+            var audio = document.getElementById('audioPlayer');
+            var playIcon = document.getElementById('fixedMusicPlayIcon');
+            var waves = document.querySelector('.fixed-music-waves');
+            
+            if (audio.paused) {
+                audio.play().catch(() => {});
+                playIcon.textContent = '❚❚';
+                playIcon.classList.add('pause');
+                if (waves) waves.classList.remove('paused');
+            } else {
+                audio.pause();
+                playIcon.textContent = '▶';
+                playIcon.classList.remove('pause');
+                if (waves) waves.classList.add('paused');
+            }
+            
+            return false;
+        }
+
+        // ============ IndexedDB ============
+        function initDB() {
+            return new Promise(function(resolve, reject) {
+                if (db) return resolve(db);
+                var request = indexedDB.open('SurpriseDB', 1);
+                
+                request.onupgradeneeded = function(event) {
+                    var database = event.target.result;
+                    if (!database.objectStoreNames.contains('data')) {
+                        database.createObjectStore('data', { keyPath: 'id' });
+                    }
+                };
+                
+                request.onsuccess = function(event) {
+                    db = event.target.result;
+                    resolve(db);
+                };
+                
+                request.onerror = function(event) {
+                    reject(event.target.error);
+                };
+            });
+        }
+
+        function saveToDB(id, value) {
+            return new Promise(function(resolve, reject) {
+                var transaction = db.transaction(['data'], 'readwrite');
+                var store = transaction.objectStore('data');
+                var request = value === null ? store.delete(id) : store.put({ id: id, value: value });
+                request.onsuccess = function() { resolve(); };
+                request.onerror = function(e) { reject(e.target.error); };
+            });
+        }
+
+        function loadFromDB(id) {
+            return new Promise(function(resolve, reject) {
+                var transaction = db.transaction(['data'], 'readonly');
+                var store = transaction.objectStore('data');
+                var request = store.get(id);
+                request.onsuccess = function(e) {
+                    resolve(e.target.result ? e.target.result.value : null);
+                };
+                request.onerror = function(e) { reject(e.target.error); };
+            });
+        }
+
+        function clearDB() {
+            return new Promise(function(resolve, reject) {
+                var transaction = db.transaction(['data'], 'readwrite');
+                var store = transaction.objectStore('data');
+                var request = store.clear();
+                request.onsuccess = function() { resolve(); };
+                request.onerror = function(e) { reject(e.target.error); };
+            });
+        }
+
+        // ============ Loading ============
+        function showLoading(text) {
+            var loading = document.createElement('div');
+            loading.id = 'loadingOverlay';
+            loading.className = 'loading-overlay';
+            loading.innerHTML = `
+                <div class="loading-spinner"></div>
+                <div class="loading-text" id="loadingText">${text}</div>
+                <div class="loading-subtext">استني شوية يا قلبي 💝</div>
+                <div class="loading-progress"><div class="loading-progress-bar" id="progressBar"></div></div>
+            `;
+            document.body.appendChild(loading);
+        }
+
+        function updateLoading(text, progress) {
+            var textEl = document.getElementById('loadingText');
+            var barEl = document.getElementById('progressBar');
+            if (textEl) textEl.textContent = text;
+            if (barEl && progress !== undefined) barEl.style.width = progress + '%';
+        }
+
+        function hideLoading() {
+            var loading = document.getElementById('loadingOverlay');
+            if (loading) loading.remove();
+        }
+
+        function showLinkSection() {
+            document.getElementById('linkSection').style.display = 'block';
+            return false;
+        }
+
+        // ============ جمع البيانات ============
+        async function collectFormData() {
+            await initDB();
+            const saved = await loadFromDB('textData') || {};
+            
+            const data = {
+                herPassword: document.getElementById('herPassword')?.value || saved.herPassword || '',
+                startDate: document.getElementById('startDate')?.value || saved.startDate || '',
+                firstMeetDate: document.getElementById('firstMeetDate')?.value || saved.firstMeetDate || '',
+                firstDateDate: document.getElementById('firstDateDate')?.value || saved.firstDateDate || '',
+                introText: document.getElementById('introText')?.value || saved.introText || '',
+                images: [],
+                sweetText: document.getElementById('sweetText')?.value || saved.sweetText || '',
+                endingText: document.getElementById('endingText')?.value || saved.endingText || '',
+                music: '',
+                musicName: document.getElementById('musicName')?.value || saved.musicName || '',
+                musicCover: ''
+            };
+            
+            const musicInput = document.getElementById('musicFile');
+            if (musicInput && musicInput.files[0]) {
+                data.music = await fileToBase64(musicInput.files[0]);
+            } else {
+                const savedMusic = await loadFromDB('music');
+                if (savedMusic) data.music = savedMusic;
+            }
+            
+            if (extractedCover) {
+                data.musicCover = extractedCover;
+            } else {
+                const coverInput = document.getElementById('musicCover');
+                if (coverInput && coverInput.files[0]) {
+                    data.musicCover = await fileToBase64(coverInput.files[0]);
+                } else {
+                    const savedCover = await loadFromDB('musicCover');
+                    if (savedCover) data.musicCover = savedCover;
+                }
+            }
+            
+            for (let i = 1; i <= imageCount; i++) {
+                const textInput = document.getElementById('imageText' + i);
+                if (!textInput) continue;
+                
+                const text = textInput.value.trim();
+                let imageData = '';
+                
+                if (imageFiles[i]) {
+                    imageData = await fileToBase64(imageFiles[i]);
+                } else if (savedImages[i]) {
+                    imageData = savedImages[i];
+                } else {
+                    const savedImg = await loadFromDB('image_' + i);
+                    if (savedImg) imageData = savedImg.image || '';
+                }
+                
+                if (imageData || text) {
+                    data.images.push({ image: imageData, text: text });
+                }
+            }
+            
+            return data;
+        }
+
+        // ============ حفظ البيانات ============
+        async function saveData() {
+            var herPassword = document.getElementById('herPassword').value.trim();
+            var startDate = document.getElementById('startDate').value;
+
+            if (!herPassword || !startDate) {
+                alert('اكتب باسورد حبيبتك وتاريخ الارتباط الأول!');
+                return;
+            }
+
+            try {
+                await initDB();
+            } catch (e) {
+                alert('❌ المتصفح مش بيدعم IndexedDB');
+                return;
+            }
+
+            for (let i = 1; i <= imageCount; i++) {
+                const el = document.getElementById('imageText' + i);
+                if (!el) continue;
+                if (!imageFiles[i] && !savedImages[i]) {
+                    if (!confirm(`الصورة ${i} مفيهاش صورة. عايز تكمل؟`)) return;
+                }
+            }
+
+            showLoading('⏳ جاري الحفظ...');
+            updateLoading('⏳ حفظ البيانات الأساسية...', 5);
+
+            var textData = {
+                herPassword: herPassword,
+                startDate: startDate,
+                firstMeetDate: document.getElementById('firstMeetDate').value,
+                firstDateDate: document.getElementById('firstDateDate').value,
+                introText: document.getElementById('introText').value,
+                sweetText: document.getElementById('sweetText').value,
+                endingText: document.getElementById('endingText').value,
+                musicName: document.getElementById('musicName').value.trim(),
+                imageCount: imageCount
+            };
+
+            await clearDB();
+            await saveToDB('textData', textData);
+            updateLoading('⏳ حفظ البيانات الأساسية...', 10);
+
+            var musicCover = '';
+            if (extractedCover) {
+                musicCover = extractedCover;
+            } else {
+                var coverInput = document.getElementById('musicCover');
+                if (coverInput && coverInput.files[0]) {
+                    musicCover = await fileToBase64(coverInput.files[0]);
+                }
+            }
+            
+            if (musicCover) {
+                updateLoading('🖼️ حفظ صورة الأغنية...', 15);
+                await saveToDB('musicCover', musicCover);
+            }
+
+            var savedImagesCount = 0;
+            var totalImages = imageCount;
+
+            for (var i = 1; i <= imageCount; i++) {
+                var textInput = document.getElementById('imageText' + i);
+                if (!textInput) continue;
+                
+                var text = textInput.value.trim();
+                var imageData = '';
+                
+                if (imageFiles[i]) {
+                    imageData = await fileToBase64(imageFiles[i]);
+                } else if (savedImages[i]) {
+                    imageData = savedImages[i];
+                }
+                
+                if (imageData || text) {
+                    await saveToDB('image_' + i, { image: imageData, text: text });
+                    savedImagesCount++;
+                }
+                
+                var progress = 15 + (i / Math.max(totalImages, 1)) * 60;
+                updateLoading('📸 حفظ الصورة ' + i + ' من ' + totalImages, progress);
+            }
+
+            var musicInput = document.getElementById('musicFile');
+            if (musicInput && musicInput.files[0]) {
+                updateLoading('🎵 حفظ الأغنية...', 80);
+                var musicData = await fileToBase64(musicInput.files[0]);
+                await saveToDB('music', musicData);
+            }
+
+            updateLoading('✅ تم الحفظ!', 100);
+
+            setTimeout(function() {
+                hideLoading();
+                alert('✅ تم الحفظ بنجاح!\n\n📸 الصور: ' + savedImagesCount);
+            }, 500);
+        }
+
+        // ============ معاينة ============
+        async function previewSurprise() {
+            var herPassword = document.getElementById('herPassword')?.value.trim();
+            var startDate = document.getElementById('startDate')?.value;
+
+            if (!herPassword || !startDate) {
+                alert('اكتب باسورد حبيبتك وتاريخ الارتباط الأول!');
+                return;
+            }
+
+            try {
+                await initDB();
+            } catch (e) {
+                alert('❌ المتصفح مش بيدعم IndexedDB');
+                return;
+            }
+
+            showLoading('⏳ جاري تحميل المعاينة...');
+            updateLoading('📄 تحميل البيانات...', 10);
+
+            const data = await collectFormData();
+
+            updateLoading('✅ جاهز!', 100);
+            setTimeout(function() {
+                hideLoading();
+                showContent(data);
+            }, 300);
+        }
+
+        // ============ إنشاء رابط ============
+        async function generateAndShowLink() {
+            var herPassword = document.getElementById('herPassword')?.value.trim();
+            var startDate = document.getElementById('startDate')?.value;
+
+            if (!herPassword || !startDate) {
+                alert('اكتب باسورد حبيبتك وتاريخ الارتباط الأول!');
+                return;
+            }
+
+            showLoading('⏳ جاري إنشاء الرابط...');
+            updateLoading('📄 تجهيز البيانات...', 10);
+
+            const data = await collectFormData();
+
+            var jsonData = JSON.stringify(data);
+            var encodedData = btoa(unescape(encodeURIComponent(jsonData)));
+            
+            if (encodedData.length > 2000) {
+                if (!confirm('⚠️ الرابط كبير جداً (' + Math.round(encodedData.length/1024) + 'KB).\n' +
+                             'ممكن ميعملش في بعض المتصفحات.\n\n' +
+                             'عايز تكمل؟')) {
+                    hideLoading();
+                    return;
+                }
+            }
+            
+            var linkName = document.getElementById('linkName').value.trim() || 'مفاجأة';
+            var generatedLink = window.location.href.split('?')[0] + '?r=' + linkName + '#data=' + encodedData;
+
+            updateLoading('✅ تم إنشاء الرابط!', 100);
+
+            setTimeout(function() {
+                hideLoading();
+
+                var linkBox = document.createElement('div');
+                linkBox.id = 'generatedLinkBox';
+                linkBox.style.cssText = 'position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.95);padding:30px;border-radius:20px;z-index:9999;text-align:center;max-width:90%;border:2px solid #ff8da1;';
+                linkBox.innerHTML = `
+                    <h3 style="color:#ffb3c1;margin-bottom:15px;font-family:'Aref Ruqaa',serif;">✅ تم إنشاء الرابط!</h3>
+                    <p style="color:#fff;font-size:14px;margin-bottom:10px;font-family:'Aref Ruqaa',serif;">اضغط على الرابط أو انسخه:</p>
+                    <a href="${generatedLink}" target="_blank" style="display:block;background:rgba(255,255,255,0.1);padding:15px;border-radius:10px;border:1px solid #ff8da1;margin-bottom:15px;word-break:break-all;color:#ffb3c1;font-size:12px;text-align:center;text-decoration:none;">${generatedLink}</a>
+                    <button type="button" onclick="copyLink('${generatedLink.replace(/'/g, "\\'")}'); return false;" style="padding:12px 25px;background:linear-gradient(135deg,#ff3366,#ff8da1);color:#fff;border:none;border-radius:25px;font-size:16px;font-weight:bold;cursor:pointer;width:100%;font-family:'Aref Ruqaa',serif;">📋 نسخ الرابط</button>
+                    <button type="button" onclick="closeLinkBox(); return false;" style="padding:10px 20px;background:transparent;color:#ffb3c1;border:1px solid #ff8da1;border-radius:25px;font-size:14px;cursor:pointer;width:100%;margin-top:10px;font-family:'Aref Ruqaa',serif;">إغلاق</button>
+                `;
+                document.body.appendChild(linkBox);
+            }, 300);
+        }
+
+        function copyLink(link) {
+            navigator.clipboard.writeText(link).then(function() {
+                alert('✅ اتنسخ الرابط!');
+            }).catch(function() {
+                prompt('انسخ الرابط:', link);
+            });
+            return false;
+        }
+
+        function closeLinkBox() {
+            var box = document.getElementById('generatedLinkBox');
+            if (box) box.remove();
+            return false;
+        }
+
+        // ============ تصدير المفاجأة كملف ============
+        async function exportSurprise() {
+            var herPassword = document.getElementById('herPassword')?.value.trim();
+            var startDate = document.getElementById('startDate')?.value;
+
+            if (!herPassword || !startDate) {
+                alert('اكتب باسورد حبيبتك وتاريخ الارتباط الأول!');
+                return;
+            }
+
+            showLoading('📦 جاري تصدير المفاجأة...');
+            updateLoading('📄 تجميع البيانات...', 10);
+
+            try {
+                const data = await collectFormData();
+                
+                updateLoading('📸 تجهيز الصور...', 40);
+                
+                const sizeEstimate = estimateDataSize(data);
+                console.log('📊 حجم البيانات المتوقع:', (sizeEstimate / 1024 / 1024).toFixed(2), 'MB');
+                
+                if (sizeEstimate > 100 * 1024 * 1024) {
+                    if (!confirm('⚠️ حجم الملف كبير (' + (sizeEstimate / 1024 / 1024).toFixed(0) + ' MB)\n' +
+                                 'واتساب مش هيقبله (الحد الأقصى 100MB).\n\n' +
+                                 'عايز تكمل؟')) {
+                        hideLoading();
+                        return;
+                    }
+                }
+                
+                updateLoading('💾 بناء الملف...', 70);
+                
+                const exportedHTML = buildExportedHTML(data);
+                
+                updateLoading('⬇️ تحميل الملف...', 90);
+                
+                const blob = new Blob([exportedHTML], { type: 'text/html;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                const fileName = 'مفاجأة-' + (data.musicName || 'حبيبتي').replace(/[^\u0600-\u06FFa-zA-Z0-9\-_]/g, '-') + '.html';
+                a.download = fileName;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                updateLoading('✅ تم!', 100);
+                
+                setTimeout(() => {
+                    hideLoading();
+                    alert(
+                        '✅ تم تصدير المفاجأة بنجاح!\n\n' +
+                        '📁 الملف: ' + fileName + '\n' +
+                        '📊 الحجم: ' + (new Blob([exportedHTML]).size / 1024 / 1024).toFixed(2) + ' MB\n\n' +
+                        '📱 الخطوة الجاية:\n' +
+                        '1. افتح واتساب\n' +
+                        '2. اختار حبيبتك\n' +
+                        '3. ارفق الملف (Document)\n' +
+                        '4. ابعت!\n\n' +
+                        '💝 لما تفتحه هتلاقي المفاجأة كاملة!'
+                    );
+                }, 500);
+                
+            } catch (e) {
+                hideLoading();
+                console.error(e);
+                alert('❌ فشل التصدير: ' + e.message);
+            }
+        }
+
+        function estimateDataSize(data) {
+            let size = 0;
+            if (data.music) size += data.music.length;
+            if (data.musicCover) size += data.musicCover.length;
+            data.images.forEach(img => {
+                if (img.image) size += img.image.length;
+            });
+            return size * 0.75;
+        }
+
+        // ============ بناء ملف HTML المدمج ============
+        function buildExportedHTML(data) {
+            const originalHTML = document.documentElement.outerHTML;
+            
+            const embeddedData = JSON.stringify({
+                herPassword: data.herPassword,
+                startDate: data.startDate,
+                firstMeetDate: data.firstMeetDate,
+                firstDateDate: data.firstDateDate,
+                introText: data.introText,
+                images: data.images,
+                sweetText: data.sweetText,
+                endingText: data.endingText,
+                music: data.music,
+                musicName: data.musicName,
+                musicCover: data.musicCover,
+                isExported: true
+            });
+            
+            let newHTML = originalHTML;
+            
+            newHTML = newHTML.replace(/<script id="embedded-data"[\s\S]*?<\/script>/g, '');
+            newHTML = newHTML.replace(/<script id="auto-run">[\s\S]*?<\/script>/g, '');
+            
+            const dataScript = '\n<script id="embedded-data" type="application/json">' + 
+                               embeddedData.replace(/<\/script>/g, '<\\/script>') + 
+                               '<\/script>\n';
+            
+            const autoRunScript = '\n<script id="auto-run">\n' +
+                'window.addEventListener("load", function() {\n' +
+                '    setTimeout(function() {\n' +
+                '        var dataEl = document.getElementById("embedded-data");\n' +
+                '        if (!dataEl) return;\n' +
+                '        try {\n' +
+                '            var data = JSON.parse(dataEl.textContent);\n' +
+                '            if (!data.isExported) return;\n' +
+                '            console.log("🎉 المفاجأة اتحملت!");\n' +
+                '            document.getElementById("passwordScreen").classList.add("hidden");\n' +
+                '            document.getElementById("adminScreen").classList.add("hidden");\n' +
+                '            document.getElementById("contentScreen").classList.remove("hidden");\n' +
+                '            if (typeof showContent === "function") {\n' +
+                '                showContent(data);\n' +
+                '            }\n' +
+                '            setTimeout(function() {\n' +
+                '                var audio = document.getElementById("audioPlayer");\n' +
+                '                if (audio && data.music) {\n' +
+                '                    audio.src = data.music;\n' +
+                '                    audio.loop = true;\n' +
+                '                    audio.play().catch(function() {\n' +
+                '                        console.log("User interaction needed");\n' +
+                '                    });\n' +
+                '                }\n' +
+                '            }, 1500);\n' +
+                '        } catch(e) {\n' +
+                '            console.error("خطأ:", e);\n' +
+                '        }\n' +
+                '    }, 300);\n' +
+                '});\n' +
+                '<\/script>\n';
+            
+            newHTML = newHTML.replace('</head>', dataScript + autoRunScript + '</head>');
+            
+            if (!newHTML.match(/^<!DOCTYPE/i)) {
+                newHTML = '<!DOCTYPE html>\n' + newHTML;
+            }
+            
+            return newHTML;
+        }
+
+        // ============ تحميل من الرابط ============
+        async function loadFromLink() {
+            var hash = window.location.hash;
+            if (!hash || !hash.includes('data=')) return;
+            
+            var encodedData = hash.replace('#data=', '');
+            let success = false;
+            
+            try {
+                var jsonData = decodeURIComponent(escape(atob(encodedData)));
+                var data = JSON.parse(jsonData);
+                
+                try {
+                    await initDB();
+                    await clearDB();
+                    await saveToDB('textData', {
+                        herPassword: data.herPassword,
+                        startDate: data.startDate,
+                        firstMeetDate: data.firstMeetDate,
+                        firstDateDate: data.firstDateDate,
+                        introText: data.introText,
+                        sweetText: data.sweetText,
+                        endingText: data.endingText,
+                        musicName: data.musicName,
+                        imageCount: data.images ? data.images.length : 0
+                    });
+                    
+                    if (data.images) {
+                        for (var i = 0; i < data.images.length; i++) {
+                            await saveToDB('image_' + (i + 1), data.images[i]);
+                        }
+                    }
+                    
+                    if (data.music) await saveToDB('music', data.music);
+                    if (data.musicCover) await saveToDB('musicCover', data.musicCover);
+                    
+                    success = true;
+                } catch (e) {
+                    console.error('فشل الحفظ:', e);
+                }
+                
+                if (success) {
+                    history.replaceState(null, '', window.location.pathname);
+                }
+            } catch (e) {
+                console.log('الرابط فيه مشكلة:', e);
+            }
+        }
+
+        // ============ فتح القفل ============
+        document.getElementById('herPasswordInput').addEventListener('input', async function() {
+            var input = this.value.trim();
+            var errorMessage = document.getElementById('errorMessage');
+            
+            try {
+                await initDB();
+            } catch (e) {
+                errorMessage.textContent = 'متصفحك مش بيدعم التطبيق';
+                errorMessage.classList.add('active');
+                return;
+            }
+            
+            var textData = await loadFromDB('textData');
+            
+            if (!textData) {
+                errorMessage.textContent = 'مفيش مفاجأة محفوظة 💔';
+                errorMessage.classList.add('active');
+                return;
+            }
+            
+            if (input === textData.herPassword) {
+                errorMessage.classList.remove('active');
+                
+                var data = {
+                    herPassword: textData.herPassword,
+                    startDate: textData.startDate,
+                    firstMeetDate: textData.firstMeetDate,
+                    firstDateDate: textData.firstDateDate,
+                    introText: textData.introText,
+                    images: [],
+                    sweetText: textData.sweetText,
+                    endingText: textData.endingText,
+                    music: '',
+                    musicName: textData.musicName || '',
+                    musicCover: ''
+                };
+                
+                var count = textData.imageCount || 0;
+                for (var i = 1; i <= count; i++) {
+                    var imgData = await loadFromDB('image_' + i);
+                    if (imgData) data.images.push(imgData);
+                }
+                
+                var musicData = await loadFromDB('music');
+                if (musicData) data.music = musicData;
+                
+                var coverData = await loadFromDB('musicCover');
+                if (coverData) data.musicCover = coverData;
+                
+                unlockEnvelope(data);
+            }
+        });
+
+        function unlockEnvelope(data) {
+            document.getElementById('lock').classList.add('unlocked');
+            document.getElementById('heart').classList.add('show');
+            document.getElementById('label').textContent = 'القفل اتفتح! دوسي على الظرف 💝';
+            document.getElementById('passwordBox').classList.remove('active');
+            
+            document.getElementById('envelope').onclick = function() {
+                openEnvelope(data);
+            };
+        }
+
+        function openEnvelope(data) {
+            var envelope = document.getElementById('envelope');
+            envelope.classList.add('opened');
+            
+            setTimeout(function() {
+                document.getElementById('envelopeWrapper').style.display = 'none';
+                showSuccessMessage(data);
+            }, 800);
+        }
+
+        function showSuccessMessage(data) {
+            document.getElementById('successMessage').classList.add('active');
+
+            setTimeout(function() {
+                document.getElementById('successText1').textContent = 'امواااااااااااه كنت متأكد انك هتعرفيه😂💗💗';
+            }, 3000);
+
+            setTimeout(function() {
+                showContent(data);
+            }, 6000);
+        }
+
+        // ============ عرض المحتوى ============
+        function showContent(data) {
+            document.getElementById('passwordScreen').classList.add('hidden');
+            document.getElementById('adminScreen').classList.add('hidden');
+            document.getElementById('contentScreen').classList.remove('hidden');
+            
+            window.scrollTo(0, 0);
+
+            var container = document.getElementById('surpriseContent');
+            var html = '';
+
+            html += '<div class="slide"><div class="content-section">';
+            html += '<div class="big-emoji">🌚</div>';
+            html += '<h1 class="slide-title">انزلي لتحت ي مراتي😉💗💗</h1>';
+            html += '</div></div>';
+
+            if (data.introText) {
+                html += '<div class="slide"><div class="content-section">';
+                html += '<div class="big-emoji">💌</div>';
+                html += '<div class="content-text">' + escapeHtml(data.introText) + '</div>';
+                html += '</div></div>';
+            }
+
+            if (data.firstMeetDate) {
+                html += '<div class="slide"><div class="content-section">';
+                html += '<div class="cinema-counter">';
+                html += '<div class="cinema-title">عدّي علي اليوم اللي لاقينا بعض فيه</div>';
+                html += '<div class="cinema-grid">';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fmYears">0</span><span class="cinema-label">سنة</span></div>';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fmMonths">0</span><span class="cinema-label">شهر</span></div>';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fmDays">0</span><span class="cinema-label">يوم</span></div>';
+                html += '</div>';
+                html += '<div class="cinema-divider"></div>';
+                html += '<div class="cinema-grid">';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fmHours">0</span><span class="cinema-label">ساعة</span></div>';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fmMinutes">0</span><span class="cinema-label">دقيقة</span></div>';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fmSeconds">0</span><span class="cinema-label">ثانية</span></div>';
+                html += '</div>';
+                html += '</div></div></div>';
+            }
+
+            if (data.images && data.images.length > 0 && data.images[0]) {
+                html += '<div class="slide"><div class="content-section">';
+                if (data.images[0].image) html += '<img src="' + data.images[0].image + '" class="content-image">';
+                if (data.images[0].text) html += '<div class="content-text">' + escapeHtml(data.images[0].text) + '</div>';
+                html += '</div></div>';
+            }
+
+            if (data.firstDateDate) {
+                html += '<div class="slide"><div class="content-section">';
+                html += '<div class="cinema-counter">';
+                html += '<div class="cinema-title">عدّي علي أول خروجة لينا</div>';
+                html += '<div class="cinema-grid" style="grid-template-columns: repeat(2, 1fr);">';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fdDays">0</span><span class="cinema-label">يوم</span></div>';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fdHours">0</span><span class="cinema-label">ساعة</span></div>';
+                html += '</div>';
+                html += '<div class="cinema-divider"></div>';
+                html += '<div class="cinema-grid" style="grid-template-columns: repeat(2, 1fr);">';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fdMinutes">0</span><span class="cinema-label">دقيقة</span></div>';
+                html += '<div class="cinema-item"><span class="cinema-number" id="fdSeconds">0</span><span class="cinema-label">ثانية</span></div>';
+                html += '</div>';
+                html += '</div></div></div>';
+            }
+
+            if (data.images && data.images.length > 1 && data.images[1]) {
+                html += '<div class="slide"><div class="content-section">';
+                if (data.images[1].image) html += '<img src="' + data.images[1].image + '" class="content-image">';
+                if (data.images[1].text) html += '<div class="content-text">' + escapeHtml(data.images[1].text) + '</div>';
+                html += '</div></div>';
+            }
+
+            html += '<div class="slide"><div class="content-section">';
+            html += '<div class="cinema-counter">';
+            html += '<div class="cinema-title">عدّي علي يوم ما بقينا لبعض</div>';
+            html += '<div class="cinema-grid">';
+            html += '<div class="cinema-item"><span class="cinema-number" id="cYears">0</span><span class="cinema-label">سنة</span></div>';
+            html += '<div class="cinema-item"><span class="cinema-number" id="cMonths">0</span><span class="cinema-label">شهر</span></div>';
+            html += '<div class="cinema-item"><span class="cinema-number" id="cDays">0</span><span class="cinema-label">يوم</span></div>';
+            html += '</div>';
+            html += '<div class="cinema-divider"></div>';
+            html += '<div class="cinema-grid">';
+            html += '<div class="cinema-item"><span class="cinema-number" id="cHours">0</span><span class="cinema-label">ساعة</span></div>';
+            html += '<div class="cinema-item"><span class="cinema-number" id="cMinutes">0</span><span class="cinema-label">دقيقة</span></div>';
+            html += '<div class="cinema-item"><span class="cinema-number" id="cSeconds">0</span><span class="cinema-label">ثانية</span></div>';
+            html += '</div>';
+            html += '</div></div></div>';
+
+            if (data.images && data.images.length > 2) {
+                for (var i = 2; i < data.images.length; i++) {
+                    var img = data.images[i];
+                    if (img) {
+                        html += '<div class="slide"><div class="content-section">';
+                        if (img.image) html += '<img src="' + img.image + '" class="content-image">';
+                        if (img.text) html += '<div class="content-text">' + escapeHtml(img.text) + '</div>';
+                        html += '</div></div>';
+                    }
+                }
+            }
+
+            if (data.sweetText) {
+                html += '<div class="slide"><div class="content-section" style="max-width: 100%;">';
+                html += '<div class="paper-container">';
+                html += '<div class="paper-decoration top-right">✒️</div>';
+                html += '<div class="paper-decoration bottom-left">💝</div>';
+                html += '<div class="paper-text" id="sweetTypewriter"></div>';
+                html += '</div>';
+                html += '</div></div>';
+            }
+
+            if (data.endingText) {
+                html += '<div class="slide"><div class="content-section">';
+                html += '<div class="big-emoji">🌹</div>';
+                html += '<div class="content-text">❦ ' + escapeHtml(data.endingText) + ' ❦</div>';
+                html += '</div></div>';
+            }
+
+            html += '<div class="slide"><div class="content-section">';
+            html += '<div class="big-emoji">💖</div>';
+            html += '<h1 class="slide-title">بحبك</h1>';
+            html += '<div style="font-size: 40px;">💕</div>';
+            html += '</div></div>';
+
+            container.innerHTML = html;
+
+            if (data.music && data.music !== '') {
+                var audio = document.getElementById('audioPlayer');
+                audio.src = data.music;
+                audio.loop = true;
+                
+                audio.play().then(function() {
+                    console.log('الأغنية اشتغلت');
+                }).catch(function() {
+                    const player = document.getElementById('fixedMusicPlayer');
+                    if (player) {
+                        const playBtn = player.querySelector('.fixed-music-play');
+                        playBtn.style.animation = 'pulse 1s infinite';
+                        playBtn.title = 'اضغط لتشغيل الأغنية';
+                    }
+                });
+            }
+
+            setupFixedMusicPlayer(data);
+
+            startCounter(
+                new Date(data.startDate),
+                data.firstMeetDate ? new Date(data.firstMeetDate) : null,
+                data.firstDateDate ? new Date(data.firstDateDate) : null
+            );
+
+            setTimeout(function() {
+                var typeEl = document.getElementById('sweetTypewriter');
+                if (typeEl && data.sweetText) {
+                    var observer = new IntersectionObserver(function(entries) {
+                        entries.forEach(function(entry) {
+                            if (entry.isIntersecting && !typeEl.dataset.started) {
+                                typeEl.dataset.started = 'true';
+                                typewriterEffect(typeEl, data.sweetText, 80);
+                            }
+                        });
+                    }, { threshold: 0.3 });
+                    observer.observe(typeEl);
+                }
+            }, 500);
+        }
+
+        // ============ العدادات ============
+        function startCounter(startDate, firstMeetDate, firstDateDate) {
+            if (_counterInterval) clearInterval(_counterInterval);
+            
+            function update() {
+                var now = new Date();
+                updateOneCounter(now, startDate, 'c');
+                if (firstMeetDate) updateOneCounter(now, firstMeetDate, 'fm');
+                if (firstDateDate) updateOneCounter(now, firstDateDate, 'fd');
+            }
+            
+            function updateOneCounter(now, date, prefix) {
+                var diff = now - date;
+                if (diff < 0) return;
+
+                var seconds = Math.floor(diff / 1000);
+                var minutes = Math.floor(seconds / 60);
+                var hours = Math.floor(minutes / 60);
+                var days = Math.floor(hours / 24);
+                var years = Math.floor(days / 365);
+                var months = Math.floor((days % 365) / 30);
+                var remainingDays = days % 30;
+
+                var el1 = document.getElementById(prefix + 'Years');
+                var el2 = document.getElementById(prefix + 'Months');
+                var el3 = document.getElementById(prefix + 'Days');
+                var el4 = document.getElementById(prefix + 'Hours');
+                var el5 = document.getElementById(prefix + 'Minutes');
+                var el6 = document.getElementById(prefix + 'Seconds');
+
+                if (el1) el1.textContent = pad(years);
+                if (el2) el2.textContent = pad(months);
+
+                if (prefix === 'fd') {
+                    if (el3) el3.textContent = pad(days);
+                    if (el4) el4.textContent = pad(hours % 24);
+                    if (el5) el5.textContent = pad(minutes % 60);
+                    if (el6) el6.textContent = pad(seconds % 60);
+                } else {
+                    if (el3) el3.textContent = pad(remainingDays);
+                    if (el4) el4.textContent = pad(hours % 24);
+                    if (el5) el5.textContent = pad(minutes % 60);
+                    if (el6) el6.textContent = pad(seconds % 60);
+                }
+            }
+            
+            function pad(num) {
+                return num < 10 ? '0' + num : num;
+            }
+            
+            update();
+            _counterInterval = setInterval(update, 1000);
+        }
+
+        // ============ Utilities ============
+        function fileToBase64(file) {
+            return new Promise(function(resolve, reject) {
+                var reader = new FileReader();
+                reader.onload = function() { resolve(reader.result); };
+                reader.onerror = reject;
+                reader.readAsDataURL(file);
+            });
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            var div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML
+                .replace(/"/g, '&quot;')
+                .replace(/'/g, '&#39;')
+                .replace(/\n/g, '<br>');
+        }
+
+        // ============ Admin Password ============
+        document.getElementById('adminPassword').addEventListener('input', async function() {
+            const enteredHash = await hashPassword(this.value);
+            if (enteredHash === ADMIN_HASH) {
+                try {
+                    await initDB();
+                    await saveToDB('inAdminScreen', true);
+                } catch(e) {}
+                document.getElementById('adminForm').style.display = 'block';
+                await loadSavedData();
+            }
+        });
+
+        // ============ تحميل البيانات المحفوظة ============
+        async function loadSavedData() {
+            try {
+                await initDB();
+                var textData = await loadFromDB('textData');
+                if (!textData) return;
+                
+                if (textData.herPassword) document.getElementById('herPassword').value = textData.herPassword;
+                if (textData.startDate) document.getElementById('startDate').value = textData.startDate;
+                if (textData.firstMeetDate) document.getElementById('firstMeetDate').value = textData.firstMeetDate;
+                if (textData.firstDateDate) document.getElementById('firstDateDate').value = textData.firstDateDate;
+                if (textData.introText) document.getElementById('introText').value = textData.introText;
+                if (textData.sweetText) document.getElementById('sweetText').value = textData.sweetText;
+                if (textData.endingText) document.getElementById('endingText').value = textData.endingText;
+                if (textData.musicName) document.getElementById('musicName').value = textData.musicName;
+                
+                var coverData = await loadFromDB('musicCover');
+                if (coverData) {
+                    extractedCover = coverData;
+                    var oldPreview = document.getElementById('musicCoverPreview');
+                    if (oldPreview) oldPreview.remove();
+                    
+                    var preview = document.createElement('img');
+                    preview.id = 'musicCoverPreview';
+                    preview.className = 'music-cover-preview';
+                    preview.src = coverData;
+                    document.getElementById('musicCover').parentNode.appendChild(preview);
+                }
+                
+                var count = textData.imageCount || 0;
+                var imagesContainer = document.getElementById('imagesContainer');
+                
+                imagesContainer.innerHTML = '';
+                imageCount = 0;
+                imageFiles = {};
+                savedImages = {};
+                
+                for (var i = 1; i <= count; i++) {
+                    var imgData = await loadFromDB('image_' + i);
+                    if (imgData && (imgData.image || imgData.text)) {
+                        addImageField(null, imgData.image, imgData.text);
+                        if (imgData.image) savedImages[i] = imgData.image;
+                    }
+                }
+                
+                var musicData = await loadFromDB('music');
+                if (musicData) {
+                    try {
+                        var musicBlob = await (await fetch(musicData)).blob();
+                        var musicFileObj = new File([musicBlob], 'music.mp3', { type: musicBlob.type });
+                        var musicDt = new DataTransfer();
+                        musicDt.items.add(musicFileObj);
+                        document.getElementById('musicFile').files = musicDt.files;
+                    } catch (e) {}
+                }
+                
+            } catch (e) {
+                console.log('مشكلة:', e);
+            }
+        }
+
+        // ============ Admin Clicks (Hidden) ============
+        document.getElementById('passwordScreen').addEventListener('click', function(e) {
+            if (e.target === document.getElementById('herPasswordInput')) return;
+            
+            adminClicks++;
+            clearTimeout(_adminClickTimer);
+            _adminClickTimer = setTimeout(() => { adminClicks = 0; }, 3000);
+            
+            if (adminClicks >= 5) {
+                adminClicks = 0;
+                clearTimeout(_adminClickTimer);
+                (async () => {
+                    try {
+                        await initDB();
+                        await saveToDB('inAdminScreen', true);
+                    } catch(e) {}
+                })();
+                document.getElementById('passwordScreen').classList.add('hidden');
+                document.getElementById('adminScreen').classList.remove('hidden');
+                document.getElementById('adminForm').style.display = 'block';
+                loadSavedData();
+            }
+        });
+
+        // ============ Visibility Change ============
+        document.addEventListener('visibilitychange', function() {
+            const audio = document.getElementById('audioPlayer');
+            if (!audio || !audio.src) return;
+            
+            if (document.hidden) {
+                if (!audio.paused) {
+                    audio.pause();
+                    _wasPlaying = true;
+                }
+            } else {
+                if (_wasPlaying) {
+                    audio.play().catch(() => {});
+                    _wasPlaying = false;
+                }
+            }
+        });
+
+        // ============ Before Unload ============
+        window.addEventListener('beforeunload', () => {
+            if (_counterInterval) clearInterval(_counterInterval);
+            if (_typerTimeout) clearTimeout(_typerTimeout);
+        });
+
+        // ============ Init ============
+        async function init() {
+            if (_initDone) return;
+            _initDone = true;
+            
+            // ✅ لو الملف مصدر، سيب الـ auto-run يشتغل
+            const embeddedData = document.getElementById('embedded-data');
+            if (embeddedData) {
+                console.log('📦 ملف مصدر — الـ auto-run هيتصرف');
+                return;
+            }
+            
+            try {
+                await initDB();
+                
+                var inAdmin = await loadFromDB('inAdminScreen');
+                
+                if (inAdmin === true) {
+                    document.getElementById('passwordScreen').classList.add('hidden');
+                    document.getElementById('adminScreen').classList.remove('hidden');
+                    document.getElementById('adminForm').style.display = 'block';
+                    await loadSavedData();
+                    return;
+                }
+                
+                var textData = await loadFromDB('textData');
+                
+                if (textData) {
+                    document.getElementById('passwordScreen').classList.remove('hidden');
+                    document.getElementById('adminScreen').classList.add('hidden');
+                    document.getElementById('passwordBox').classList.add('active');
+                    document.getElementById('herPasswordInput').focus();
+                } else {
+                    document.getElementById('passwordScreen').classList.add('hidden');
+                    document.getElementById('adminScreen').classList.remove('hidden');
+                }
+            } catch (e) {
+                document.getElementById('passwordScreen').classList.add('hidden');
+                document.getElementById('adminScreen').classList.remove('hidden');
+            }
+        }
+
+        loadFromLink().then(init);
+    </script>
+
+</body>
+</html>
